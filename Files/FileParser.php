@@ -24,6 +24,8 @@ class CSVParser implements FileParserI{
 		}
 		return $divElt;
 	}
+	
+	//получить на выходе массив пользователей
 	public function parse($file){
 		$users = str_getcsv($file,"\n"); 
 		if(is_array($users)){

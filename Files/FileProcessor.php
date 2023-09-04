@@ -1,6 +1,6 @@
 <?php
 
-//обработка файлов
+//обработка файлов согласно различным алгоритмам
 interface ProcesserI{
 	public function processData($content,$n,$usNames);
 } 

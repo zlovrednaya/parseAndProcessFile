@@ -15,7 +15,7 @@ $names = $files->getFileNames($content,'./texts'); //тут все содерж�
 
 //обработчик алгоритмов
 $result = $files->process($content,$names);
-echo print_r($result);
+echo print_r($result,true);
 
 
 

@@ -1,4 +1,5 @@
 <?php
+namespace FileManager;
 
 //операции с файлами
 //-чтение из файлов

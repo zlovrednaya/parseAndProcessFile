@@ -1,4 +1,6 @@
 <?php
+namespace FileProcessor;
+use \Datetime;
 
 //обработка файлов согласно различным алгоритмам
 interface ProcesserI{
@@ -50,7 +52,7 @@ class ProcesserRW implements ProcesserI{
 		}
 		foreach($matches[0] as $m){
 			if($m){
-				$mNew = (new Datetime($m))->format('m-d-Y');
+				$mNew = (new \Datetime($m))->format('m-d-Y');
 				$content = str_replace($m,$mNew,$content);
 				
 				$this->resultArray[$n['id']]['count']++;
@@ -66,7 +68,7 @@ class ProcesserRW implements ProcesserI{
 		}
 		$this->resultArray[$n['id']]['name']=$usNames[$n['id']];
 		
-		$this->fileManager->write($n['nameFile'],$content);
+		$this->fileManager->write($content,$n['nameFile']);
 		
 		return $this->resultArray;
 	

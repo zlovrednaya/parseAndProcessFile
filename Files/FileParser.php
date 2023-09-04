@@ -1,8 +1,10 @@
 <?php
 
+namespace FileParser;
+
 //обработка файлов
 interface FileParserI{
-	public function parse($file);
+	public function parse(string $file);
 }
 class CSVParser implements FileParserI{
 	protected $divider;
@@ -28,7 +30,6 @@ class CSVParser implements FileParserI{
 	//на входе данные файла
 	//на выходе массив пользователей 
 	public function parse(string $file):array{
-		echo print_r($file);die;
 		$users = str_getcsv($file,"\n"); 
 		
 		if(is_array($users)){

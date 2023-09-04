@@ -1,5 +1,10 @@
 <?php
 
+namespace FilesOperator;
+use FileManager;
+use FileParser;
+use FileProcessor;
+
 //в этом классе производится управление работой файлов - собирает вместе операции с файлами
 
 class FilesOperator {
@@ -9,7 +14,7 @@ class FilesOperator {
 	private $fileManager;
 	private $fileParser;
 	private $processerComponent;
-	function __construct($params,FileManagerI $fm,FileParserI $fpar){
+	function __construct($params,FileManager\FileManagerI $fm,FileParser\FileParserI $fpar){
 	
 		$this->fileManager = $fm;
 		$this->fileParser = $fpar;
@@ -21,7 +26,6 @@ class FilesOperator {
 	public function getFileContent(){
 		//$fl = $this->fileManager->read();
 		$fl  =$this->fileManager->readAndProcess();
-	
 		$content = $this->fileParser->parseArray($fl);
 		return $content;	
 	}
@@ -38,9 +42,9 @@ class FilesOperator {
 	public function getProcessComponent(){
 		switch($this->mode){
 			case 'countAverageLineCount':
-				return new ProcesserMath();
+				return new FileProcessor\ProcesserMath();
 			case 'replaceDates':
-				return new ProcesserRW($this->fileManager);
+				return new FileProcessor\ProcesserRW($this->fileManager);
 		}
 	}
 	

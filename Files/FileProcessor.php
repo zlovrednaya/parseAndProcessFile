@@ -106,10 +106,8 @@ class FilesOperator {
 		switch($this->mode){
 			case 'countAverageLineCount':
 				return new ProcesserMath();
-				break;
 			case 'replaceDates':
 				return new ProcesserRW($this->fileManager);
-				break;
 		}
 	}
 	

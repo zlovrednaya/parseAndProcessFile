@@ -16,24 +16,40 @@ class CSVParser implements FileParserI{
 			case 'comma':
 				$divElt=',';
 				break;
-			case 'semicolon':
 			default:
+			case 'semicolon':
 				$divElt=';';
 				break;
 	
 		}
 		return $divElt;
 	}
-	
-	//получить на выходе массив пользователей
-	public function parse($file){
+
+	//на входе данные файла
+	//на выходе массив пользователей 
+	public function parse(string $file):array{
+		echo print_r($file);die;
 		$users = str_getcsv($file,"\n"); 
+		
 		if(is_array($users)){
 			foreach($users as &$us){
 				$us = explode($this->divider,$us);
 			}
 		}
 		return $users;
+	}
+
+
+	//разделяет строки файла, представленные в массиве
+	public function parseArray(array $file):array{
+		
+	
+			foreach($file as &$us){
+				$us = explode($this->divider,$us);
+				
+			}
+			
+		return $file;
 	}
 }
 

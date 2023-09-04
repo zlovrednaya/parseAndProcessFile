@@ -19,8 +19,10 @@ class FilesOperator {
 	}
 	
 	public function getFileContent(){
-		$fl = $this->fileManager->read();
-		$content = $this->fileParser->parse($fl);
+		//$fl = $this->fileManager->read();
+		$fl  =$this->fileManager->readAndProcess();
+	
+		$content = $this->fileParser->parseArray($fl);
 		return $content;	
 	}
 	
@@ -65,13 +67,13 @@ class FilesOperator {
 		
 		$this->processContent($content);
 		$this->processerComponent->substrSymbols=strlen($this->pathFolder);
-		
 		foreach($fileNames as $n){
 			
 			$nameArr = $this->processFileName($n,$content);
 			$flContent = $this->fileManager->read($n);
 			$res = $this->processerComponent->processData($flContent,$nameArr,$content);
 		}
+		
 		return $res;
 		
 	}

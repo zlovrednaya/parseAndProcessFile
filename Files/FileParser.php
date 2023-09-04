@@ -17,8 +17,6 @@ class CSVParser implements FileParserI{
 				$divElt=',';
 				break;
 			case 'semicolon':
-				$divElt=';';
-				break;
 			default:
 				$divElt=';';
 				break;

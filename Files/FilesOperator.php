@@ -23,6 +23,7 @@ class FilesOperator {
 		
 	}
 	
+	//получает контент файла и преобразовывает его
 	public function getFileContent(){
 		//$fl = $this->fileManager->read();
 		$fl  =$this->fileManager->readAndProcess();
@@ -30,6 +31,7 @@ class FilesOperator {
 		return $content;	
 	}
 	
+	//получает контент папки со входными файлами
 	public function getFileNames($conent,$path){
 		$this->pathFolder = $path;
 		$userIds=array_column($conent,'0');
@@ -39,6 +41,7 @@ class FilesOperator {
 		
 	}
 	
+	//выявляет компонент для обработки
 	public function getProcessComponent(){
 		switch($this->mode){
 			case 'countAverageLineCount':
@@ -48,6 +51,7 @@ class FilesOperator {
 		}
 	}
 	
+	//предообрабатывает контент файла
 	public function processContent(&$content){
 		$newContent=[];
 		foreach($content as $ct){
@@ -56,6 +60,8 @@ class FilesOperator {
 		$content = $newContent;
 		
 	}
+
+	//обрабатывает контент файла в соотвтествиии с выбранным алгоритмом
 	public function processFileName($name,$content){
 		$fileName= substr($name,(strlen($this->pathFolder))+1);
 		$id = substr($fileName,0,strpos($fileName,'-'));

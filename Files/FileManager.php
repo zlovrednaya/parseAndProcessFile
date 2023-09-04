@@ -23,6 +23,17 @@ class FileManager implements FileManagerI{
 		$fl = file_get_contents($path, true);
 		return $fl;
 	}
+	public function readAndProcess($path=false){
+
+		$handle = fopen($path,'r');
+		$lineNum=1;
+		while(($raw_string==fgets($handle))!==false){
+			$row = str_getcsv($raw_string);
+			$lineNum++;
+		}
+
+		fclose($handle);
+	}
 	
 	public function write($fileName=false,$content){
 		

@@ -23,6 +23,7 @@ class FileManager implements FileManagerI{
 		$fl = file_get_contents($path, true);
 		return $fl;
 	}
+	//чтение больших файлов
 	public function readAndProcess($path=false){
 
 		$handle = fopen($path,'r');

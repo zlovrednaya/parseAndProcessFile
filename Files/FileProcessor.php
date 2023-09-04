@@ -4,6 +4,8 @@
 interface ProcesserI{
 	public function processData($content,$n,$usNames);
 } 
+
+//класс для типа задачи с математической обработкой - countAverageLineCount - для каждого пользователя посчитать среднее количество строк в его текстовых файлах и вывести на экран вместе с именем пользователя.
 class ProcesserMath implements ProcesserI{
 	public $resultArray=[];
 	public $countArray=[];
@@ -27,6 +29,8 @@ class ProcesserMath implements ProcesserI{
 	
 	
 }
+
+//класс с типом задачи с постзаписью - replaceDates - поместить тексты пользователей в папку ./output_texts, заменив в каждом тексте даты в формате dd/mm/yy на даты в формате mm-dd-yyyy. Вывести на экран количество совершенных для каждого пользователя замен вместе с именем пользователя.
 class ProcesserRW implements ProcesserI{
 	public $resultArray=[];
 	public $countArray=[];
@@ -36,6 +40,7 @@ class ProcesserRW implements ProcesserI{
 	function __construct($fm){
 		$this->fileManager = $fm;
 	}
+
 
 	public function processData($content,$n,$usNames){
 		preg_match_all('/\d{4}\/\d{2}\/\d{2}/',$content,$matches);

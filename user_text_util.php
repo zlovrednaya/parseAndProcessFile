@@ -1,7 +1,8 @@
 <?php
-include('./Files/FileManager.php');
-include('./Files/FileParser.php');
-include('./Files/FileProcessor.php');
+require('./Files/FileManager.php');
+require('./Files/FileParser.php');
+require('./Files/FileProcessor.php');
+require('./Files/FilesOperator.php');
 
 
 

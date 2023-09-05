@@ -1,7 +1,7 @@
-# workwithfiles
+# workwithfiles raw php
 
-raw php
-https://gist.github.com/mirepnikov/3037489cae2c934d2c283be4c540bc9d
+
+
 
 
 В файле ./people.csv хранится информация о пользователях в CSV формате. В первом поле id пользователя (целое без знака), во втором его имя (строка текста). Пример строки в файле: 1;Sergey Dorohov

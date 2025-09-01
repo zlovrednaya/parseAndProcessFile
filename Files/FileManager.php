@@ -1,9 +1,9 @@
 <?php
 namespace FileManager;
 
-//операции с файлами
-//-чтение из файлов
-//-записать в файл
+//operations with files 
+//-read
+//-write
 interface FileManagerI{
 	public function read();
 	public function write($content,$path);
@@ -18,7 +18,7 @@ class FileManager implements FileManagerI{
 		
 	}
 
-	//чтение маленьких файлов
+	//read small files
 	public function read($path=false):string{
 		if(!$path){
 			$path = $this->pathIn;
@@ -26,7 +26,7 @@ class FileManager implements FileManagerI{
 		$fl = file_get_contents($path, true);
 		return $fl;
 	}
-	//чтение больших файлов CSV
+	//read large CSV files
 	public function readAndProcess($path=false):array{
 
 		if(!$path){

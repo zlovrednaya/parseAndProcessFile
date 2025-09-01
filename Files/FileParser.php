@@ -2,7 +2,7 @@
 
 namespace FileParser;
 
-//обработка файлов
+// file processing
 interface FileParserI{
 	public function parse(string $file);
 }
@@ -11,7 +11,7 @@ class CSVParser implements FileParserI{
 	function __construct($div){
 		$this->divider = $this->getParseDivider($div);
 	}
-	//получить разделитель для файла
+	// receive csv divider
 	public static function getParseDivider($divider){
 		$divElt='';
 		switch ($divider) {
@@ -27,8 +27,8 @@ class CSVParser implements FileParserI{
 		return $divElt;
 	}
 
-	//на входе данные файла
-	//на выходе массив пользователей 
+	// input: filedata
+	// output: array
 	public function parse(string $file):array{
 		$users = str_getcsv($file,"\n"); 
 		
@@ -41,7 +41,7 @@ class CSVParser implements FileParserI{
 	}
 
 
-	//разделяет строки файла, представленные в массиве
+	// divide rows of array
 	public function parseArray(array $file):array{
 		
 	
